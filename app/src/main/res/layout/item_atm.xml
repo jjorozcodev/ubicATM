@@ -4,78 +4,86 @@
                                     xmlns:tools="http://schemas.android.com/tools"
                                     android:id="@+id/item_atm"
                                     android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginTop="12dp"
-                                    android:layout_marginRight="16dp"
-                                    android:layout_marginBottom="6dp">
+                                    android:layout_height="95dp">
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+    >
+
         <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
+                android:id="@+id/logo"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
-                tools:srcCompat="@tools:sample/avatars"
                 android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars"
         />
 
         <LinearLayout
                 android:padding="8dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="7"
                 android:orientation="vertical">
-
-            <TextView
-                    android:id="@+id/bancoNombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lafise Bancentro"
-                    android:textStyle="bold" />
-
-            <TextView
-                    android:id="@+id/tipoATM"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ATM Full" />
-
             <TextView
                     android:id="@+id/localidadNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Metrocentro"
-                    android:textStyle="italic" />
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/accent" />
+            <TextView
+                    android:id="@+id/bancoNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="@color/accent"
+                    android:text="Lafise Bancentro"
+            />
 
             <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+            >
                 <TextView
-                        android:id="@+id/localidadLatitud"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tipoATM"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="-87.989898"
-                        android:layout_weight="3"/>
-
-                <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
+                        android:text="TIPO: Full"
+                        android:textSize="15sp"
+                        android:textColor="@color/accent"
+                        android:textStyle="italic"
+                />
                 <TextView
-                        android:id="@+id/localidadLongitud"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="11.123433"
-                        android:layout_weight="3"/>
+                        android:textColor="@color/accent"
+                        android:text=" ~ "
+                />
+                <TextView
+                        android:id="@+id/cantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/accent"
+                        android:textSize="15sp"
+                        android:text="CANT.: 2"
+                        android:textStyle="italic"
+                />
             </LinearLayout>
-
         </LinearLayout>
-
+        <ImageView
+                android:id="@+id/ubicacion"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                tools:srcCompat="@drawable/ic_location"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+        />
 
     </LinearLayout>
 

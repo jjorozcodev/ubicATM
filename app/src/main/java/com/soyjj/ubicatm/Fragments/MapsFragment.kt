@@ -1,32 +1,47 @@
 package com.soyjj.ubicatm.Fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 import com.soyjj.ubicatm.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-class MapsFragment : Fragment() {
+class MapsFragment : Fragment(), OnMapReadyCallback {
+
+    lateinit var mapFragment : SupportMapFragment
+    lateinit var googleMap : GoogleMap
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
+        (activity!!.supportFragmentManager.findFragmentById(com.soyjj.ubicatm.R.id.maps) as SupportMapFragment?)?.let {
+            it.getMapAsync(OnMapReadyCallback {
+                googleMap = it
+                val uca = LatLng(12.12,-86.27)
+                googleMap.addMarker(MarkerOptions().position(uca).title("UCA"))
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(uca, 15f))
+
+            })
+        }
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
 
+    override fun onMapReady(p0: GoogleMap) {
+        googleMap = p0
+        val uca = LatLng(12.12,-86.27)
+        googleMap.addMarker(MarkerOptions().position(uca).title("UCA"))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(uca, 15f))
 
+    }
 }

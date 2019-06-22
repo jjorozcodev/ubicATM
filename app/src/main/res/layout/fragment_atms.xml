@@ -2,17 +2,28 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="wrap_content"
              tools:context=".Fragments.AtmsFragment">
-    <TextView
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hola!"
-    />
-    <android.support.v7.widget.RecyclerView
-            tools:listitem="@layout/item_atm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rvAtms"/>
+            android:layout_height="match_parent"
+        android:orientation="vertical"
+    >
+        <TextView
+                android:id="@+id/posicionActual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/accent"
+                android:text="Tu posición Actual es: 12.126295, -86.271328"
+        />
+        <android.support.v7.widget.RecyclerView
+                tools:listitem="@layout/item_atm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rvAtms"/>
+    </LinearLayout>
+
 
 </FrameLayout>
